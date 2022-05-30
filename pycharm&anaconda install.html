@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从零开始学习机器学习之pycharm安装&amp;anaconda安装与配置</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>文章目录</h3><ul><li><a href="#_5">前言</a></li><li><a href="#pycharm_11">一、pycharm安装</a></li><ul><li><a href="#pycharmhttpswwwjetbrainscompycharm_12">浏览器搜索pycharm官网或直接复制链接：https://www.jetbrains.com/pycharm</a></li></ul><li><a href="#anaconda_20">二、anaconda安装</a></li><ul><li><a href="#1httpsmirrorstunatsinghuaeducnanacondaarchive_24">1.浏览器搜索清华大学镜像站网址如下：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a></li><li><a href="#2_27">2.环境变量配置</a></li><li><a href="#3_39">3.检测是否配置完成</a></li><ul><li><a href="#_40"></a></li></ul></ul><li><a href="#pycharmpython_55">三、在pycharm中配置python解释器</a></li></ul></div><p></p>
+<hr>
+<h1><a id="_5"></a>前言</h1>
+<blockquote>
+<p>本人是研0小白一枚，不出意外入学后的研究方向就是机器学习，深度学习这一块。从今天起，每天都会发文记录自己的所学，希望各位大佬能多多指教~</p>
+</blockquote>
+<hr>
+<p>今日学习内容：pycharm（python IDE）安装，anaconda安装和配置</p>
+<h1><a id="pycharm_11"></a>一、pycharm安装</h1>
+<h2><a id="pycharmhttpswwwjetbrainscompycharm_12"></a>浏览器搜索pycharm官网或直接复制链接：https://www.jetbrains.com/pycharm</h2>
+<p>关键步骤如下图所示，无特别标注均点击下一步即可。<br>
+<img src="https://img-blog.csdnimg.cn/a0b6f6fd084d478aa4bb004bc75c9d1f.png#pic_center" alt="点击下载"><br>
+<img src="https://img-blog.csdnimg.cn/74f4649121004ff6ae7615fb762b4b8a.png#pic_center" alt="选择社区版下载（免费）"><br>
+<img src="https://img-blog.csdnimg.cn/075e57a43e814a7db950c1474dcfad0c.png#pic_center" alt="修改安装路径"><br>
+<img src="https://img-blog.csdnimg.cn/3e04287b761a4f58b377fd5924e4eb84.png#pic_center" alt="可以都勾上"></p>
+<h1><a id="anaconda_20"></a>二、anaconda安装</h1>
+<blockquote>
+<p>Anaconda本身带有python，就不用另外安装python，可以自定义路径安装，但必须记住路径！本人安装在E:\Anaconda</p>
+</blockquote>
+<h2><a id="1httpsmirrorstunatsinghuaeducnanacondaarchive_24"></a>1.浏览器搜索清华大学镜像站网址如下：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</h2>
+<p><img src="https://img-blog.csdnimg.cn/68d742359e51463b803dbd6642f5c1b6.png#pic_center" alt="anaconda"><br>
+<img src="https://img-blog.csdnimg.cn/a01e208a73bd4979af6ed80f0ad7eace.png#pic_center" alt="在这里插入图片描述"></p>
+<h2><a id="2_27"></a>2.环境变量配置</h2>
+<p>此电脑-----&gt;属性-----&gt;高级系统设置-----&gt;环境变量-----&gt;path-----&gt;编辑-----&gt;新建<br>
+<img src="https://img-blog.csdnimg.cn/7c4f2908cc794f68b145bb9371d2db9b.png#pic_center" alt="在这里插入图片描述"><br>
+分别输入（将E:\Anaconda改为你的anaconda的安装路径）<br>
+E:\Anaconda\Scripts<br>
+E:\Anaconda<br>
+E:\Anaconda\Library\bin<br>
+E:\Anaconda\Library\usr\bin<br>
+E:\Anaconda\Library\mingw-w64\bin</p>
+<blockquote>
+<p>注意此处是在系统变量处的path修改，只有这样在cmd中才不用更改至anaconda的安装路径，直接在C盘就可以有python环境，见下文。</p>
+</blockquote>
+<h2><a id="3_39"></a>3.检测是否配置完成</h2>
+<h3><a id="_40"></a></h3>
+<ol>
+<li>win+r 输入cmd-&gt;在黑框输入python得到如下图即为有python环境<br>
+<img src="https://img-blog.csdnimg.cn/80303ec2dbb74a76a848ffc9f2c0c945.png#pic_center" alt="在这里插入图片描述"></li>
+<li>然后输入exit()，再输入conda --version ，如图就是有conda环境<br>
+<img src="https://img-blog.csdnimg.cn/71f50d9ee1a342afb57c1d62026a7111.png#pic_center" alt="在这里插入图片描述"><br>
+如果提示conda不是内部或外部命令，那就是Anaconda的 环境变量 没配置好。好好检查一下。</li>
+<li>点击anaconda navigator出现如下界面即可<br>
+<img src="https://img-blog.csdnimg.cn/1d41043ebb4a4b68ad1d3aa732d1a604.png#pic_center" alt="在这里插入图片描述"></li>
+<li>使用jupyter notebook输出第一个hello world<br>
+找到你的jupyter notebook<br>
+<img src="https://img-blog.csdnimg.cn/9249e542d69143a0a20d294637653bdf.png#pic_center" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/8045e45640e44bd38b36aa6c6396f1ac.png#pic_center" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/34b16987405b4e9fb8870a8de3a9f5ca.png#pic_center" alt="在这里插入图片描述"><br>
+点击运行后如下图所示<br>
+<img src="https://img-blog.csdnimg.cn/06d3de2b81be4c6bad2fc2ef90cbb2d2.png#pic_center" alt="在这里插入图片描述"></li>
+</ol>
+<h1><a id="pycharmpython_55"></a>三、在pycharm中配置python解释器</h1>
+<p>打开pycharm-&gt;File-&gt;Settings-&gt;Project-&gt;Project Interpreter<br>
+<img src="https://img-blog.csdnimg.cn/51c1ab466f924927bebe22f52e49a25e.png#pic_center" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/67162ce118794da1b0c5b2e9c3bd72a9.png#pic_center" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/73da9884931042dfbe702de39c52d79c.png#pic_center" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/b8d7a81ff5354c038a52b679c15abf23.png#pic_center" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/474f952ae3144d0db2f7098e832ba11e.png#pic_center" alt="在这里插入图片描述"></p>
+</div>
+</body>
+
+</html>
