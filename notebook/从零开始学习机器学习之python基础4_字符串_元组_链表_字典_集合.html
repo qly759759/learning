@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从零开始学习机器学习之python基础|字符串|元组|链表|字典|集合</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>文章目录</h3><ul><li><a href="#_10">一、字符串常用方法</a></li><ul><li><a href="#1_11">1.查找</a></li><li><a href="#2_19">2.替换</a></li><li><a href="#3_21">3.分割</a></li><li><a href="#4_30">4.连接</a></li><li><a href="#5_35">5.判断</a></li><li><a href="#6_39">6.转换</a></li><li><a href="#7_44">7.对齐</a></li></ul><li><a href="#tuple_50">二、元组tuple</a></li><ul><li><a href="#1_51">1.定义</a></li><li><a href="#2_65">2.遍历</a></li><li><a href="#3_81">3.嵌套</a></li><li><a href="#4_93">4.方法</a></li></ul><li><a href="#list_97">三、列表list</a></li><ul><li><a href="#1_98">1.定义和下标</a></li><li><a href="#2_108">2.遍历</a></li><li><a href="#3_123">3.逆序</a></li><li><a href="#4_134">4.列表排序和逆序的实现</a></li><li><a href="#5__154">5. 添加</a></li><li><a href="#6_161">6.查找</a></li><li><a href="#7__167">7. 删除</a></li><li><a href="#8_175">8.列表推导式：自动生成数据</a></li><li><a href="#9_183">9.组包和拆包</a></li></ul><li><a href="#dict_200">三、字典dict</a></li><ul><li><a href="#1_201">1.定义</a></li><li><a href="#2_205">2.访问</a></li><li><a href="#3_208">3.数据访问</a></li><li><a href="#4_213">4.遍历</a></li><li><a href="#5__234">5. 增删改查</a></li></ul><li><a href="#set_243">四、集合set</a></li><ul><li><a href="#1_244">1.特性和定义</a></li><li><a href="#2_256">2.遍历</a></li></ul><li><a href="#_264">五、公共方法</a></li></ul></div><p></p>
+<hr>
+<hr>
+<h1><a id="_10"></a>一、字符串常用方法</h1>
+<h2><a id="1_11"></a>1.查找</h2>
+<ul>
+<li>find()：返回字符串第一次出现的位置，且可以设置查找的起止和结束位置，找不到子串时返回-1<br>
+eg：find(‘a’,2,10)在原字符串的下标2到10中查找字符a</li>
+<li>rfind():返回字符串最后一次出现的位置，找不到则返回-1</li>
+</ul>
+<p>-index()与find相同，但区别在于 找不到子串时直接报错（不推荐使用）<br>
+-rindex()与rfind相同，但区别在于 找不到子串时直接报错（不推荐使用）</p>
+<h2><a id="2_19"></a>2.替换</h2>
+<p>replace(old,new,max)将老字符串替换成新的字符串，并替换个数不超过max</p>
+<h2><a id="3_21"></a>3.分割</h2>
+<ul>
+<li>
+<p>split(old,new,max)返回字符串列表<br>
+如果在分割字符串时，需要用任何空白进行分割，那么在参数中，什么也不要写<br>
+split()</p>
+</li>
+<li>
+<p>splitlines()按行分割=split(‘\n’)</p>
+</li>
+<li>
+<p>partition()按条件分割，分成 条件前，条件，条件后</p>
+</li>
+<li>
+<p>rpartition()从右边进行分割</p>
+</li>
+</ul>
+<h2><a id="4_30"></a>4.连接</h2>
+<p>join()使用当前字符串连接参数中的每个元素,当连接一个字符时无法操作，至少两个以上<br>
+eg：ss=“hello world”<br>
+print(‘-’.join(ss))<br>
+#h-e-l-l-o- -w-o-r-l-d</p>
+<h2><a id="5_35"></a>5.判断</h2>
+<ul>
+<li>startswith()判断是否以指定字符串开头，返回bool类型</li>
+<li>endswith()判断是否以指定字符串开头，返回bool类型</li>
+<li>is____（）系列</li>
+</ul>
+<h2><a id="6_39"></a>6.转换</h2>
+<ul>
+<li>upper()转换成大写</li>
+<li>lower()转换成小写</li>
+<li>title()将每个单词首字符转换成大写</li>
+<li>capitalize()将第一个单词的首字符转换成大写</li>
+</ul>
+<h2><a id="7_44"></a>7.对齐</h2>
+<ul>
+<li>center(num,str)中间对齐,使原字符占num个位置，空位用str填补</li>
+<li>rjust()右对齐</li>
+<li>ljust()左对齐</li>
+</ul>
+<h1><a id="tuple_50"></a>二、元组tuple</h1>
+<h2><a id="1_51"></a>1.定义</h2>
+<ol>
+<li>不能修改,不可变</li>
+<li>用（）括起来</li>
+<li>类型：tuple</li>
+<li>元组的下标使用和字符串一样<br>
+eg:t=(‘a’,1,‘hello’)<br>
+print(t[0])#‘a’<br>
+print(t[2])#‘hello’</li>
+<li>定义包含其他数据类型的元组<br>
+eg:t=(‘a’,1,‘hello’)</li>
+<li>定义具有一个元素的元组，无效 eg：t=(1)为int类型，可以改为t=（1，）
+<ul>
+<li>使用类型名定义元组 eg：t=tuple()  eg：t=tuple(‘hello’)#(‘h’,‘e’,‘l’,‘l’,‘o’)</li>
+</ul>
+</li>
+</ol>
+<h2><a id="2_65"></a>2.遍历</h2>
+<pre><code class="prism language-python">t <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> v <span class="token keyword">in</span> t<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>t<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+j <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">while</span> j <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>t<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    j <span class="token operator">+=</span> <span class="token number">1</span>
+</code></pre>
+<h2><a id="3_81"></a>3.嵌套</h2>
+<p>通过isinstence(参数一，参数二)函数判断参数一是否是参数二的类型</p>
+<pre><code class="prism language-python">t <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> v <span class="token keyword">in</span> t<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span><span class="token builtin">tuple</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment">#判断元素是否为元组类型</span>
+        <span class="token keyword">for</span> v2 <span class="token keyword">in</span> v<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+
+</code></pre>
+<h2><a id="4_93"></a>4.方法</h2>
+<ul>
+<li>count（参数）原元组中包含几个参数</li>
+<li>index（）找到原元组中第一个包含字符的下标，如果不存在会报错</li>
+</ul>
+<h1><a id="list_97"></a>三、列表list</h1>
+<h2><a id="1_98"></a>1.定义和下标</h2>
+<ul>
+<li>可变的</li>
+<li>定义一个具有一个元素的列表eg：[1]可以实现</li>
+<li>t=[]</li>
+<li>t=list()</li>
+<li>下标访问，和字符串一样t[0]</li>
+<li>可以通过下标修改对应位置上的数据</li>
+</ul>
+<h2><a id="2_108"></a>2.遍历</h2>
+<pre><code class="prism language-python">t <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> v1 <span class="token keyword">in</span> t<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>v1<span class="token punctuation">,</span> <span class="token builtin">tuple</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> v2 <span class="token keyword">in</span> v1<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>v1<span class="token punctuation">,</span> <span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> v3 <span class="token keyword">in</span> v1<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>v3<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span>
+</code></pre>
+<h2><a id="3_123"></a>3.逆序</h2>
+<pre><code class="prism language-python">i <span class="token operator">=</span> <span class="token number">0</span>
+s_a <span class="token operator">=</span> <span class="token string">''</span>
+i<span class="token operator">=</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+<span class="token keyword">while</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+    s_a <span class="token operator">+=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    i <span class="token operator">-=</span> <span class="token number">1</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s_a<span class="token punctuation">)</span>
+</code></pre>
+<h2><a id="4_134"></a>4.列表排序和逆序的实现</h2>
+<p>顺排：</p>
+<ul>
+<li>sort()默认从小到大</li>
+<li>sort(reverse=‘True’)从大到小排</li>
+</ul>
+<p>逆序：<br>
+reverse（）<br>
+实现逆序</p>
+<pre><code class="prism language-python">s <span class="token operator">=</span> <span class="token string">'hello world'</span>
+r_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+i <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+<span class="token keyword">while</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+    r_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    i <span class="token operator">-=</span> <span class="token number">1</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>r_list<span class="token punctuation">)</span>
+</code></pre>
+<h2><a id="5__154"></a>5. 添加</h2>
+<ul>
+<li>append（）将整体放到源列表</li>
+<li>extend（）将每个元素添加扩展到源列表</li>
+<li>insert(参数一，参数二)将参数二加到下标为参数一的位置上</li>
+</ul>
+<blockquote>
+<p>`在插入数据时，没有下标越界问题，如果指定下标超过元素正常范围，相当于追加</p>
+</blockquote>
+<h2><a id="6_161"></a>6.查找</h2>
+<p>s=[1,2,3,4]</p>
+<ul>
+<li>count()</li>
+<li>index()找不到会报错</li>
+<li>in print(2 in s)#true print(5 in s)#false</li>
+</ul>
+<h2><a id="7__167"></a>7. 删除</h2>
+<ul>
+<li>pop(index) index参数可以不写，默认删除最后一个,index 为下标<br>
+eg:pop(2)</li>
+<li>remove(具体的值)删除指定对象，当有相同的数，删除第一个，在使用列表时，不要在循环遍历时删除元素<br>
+-del list 将整个列表删除<br>
+del(s[0])<br>
+-clear() 清空列表函数<br>
+`</li>
+</ul>
+<h2><a id="8_175"></a>8.列表推导式：自动生成数据</h2>
+<p>三种方法</p>
+<pre><code class="prism language-python">s <span class="token operator">=</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+s <span class="token operator">=</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">if</span> i <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">]</span>
+s <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">for</span> y <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token comment">#可以三层循环</span>
+
+</code></pre>
+<h2><a id="9_183"></a>9.组包和拆包</h2>
+<pre><code class="prism language-python"><span class="token comment">#组包</span>
+a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span> <span class="token comment">#元组</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#拆包</span>
+a1<span class="token punctuation">,</span> a2<span class="token punctuation">,</span> a3<span class="token punctuation">,</span> a4<span class="token punctuation">,</span> a5 <span class="token operator">=</span> a
+a1<span class="token punctuation">,</span> a2<span class="token punctuation">,</span> a3<span class="token punctuation">,</span> a4<span class="token punctuation">,</span> a5 <span class="token operator">=</span> <span class="token string">'abcdx'</span>
+a1<span class="token punctuation">,</span> a2<span class="token punctuation">,</span> a3<span class="token punctuation">,</span> a4<span class="token punctuation">,</span> a5 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span>
+a1<span class="token punctuation">,</span> a2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'a'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><code>拆包时，变量个数要与容器中个数相同，否则会报错</code><br>
+<code>列表，字符串，字典类型都可以进行拆包</code>，但字典类型赋值的是key</p>
+</blockquote>
+<h1><a id="dict_200"></a>三、字典dict</h1>
+<h2><a id="1_201"></a>1.定义</h2>
+<ul>
+<li>{key:value,key:value}key一般是字符串类型</li>
+<li>d=dict()</li>
+<li></li>
+</ul>
+<h2><a id="2_205"></a>2.访问</h2>
+<p>通过下标的中括号中书写key的方式 来直接访问key对应的值，若使用不存在的key则会报错<br>
+修改key对应的值：d[‘key值’]=‘’</p>
+<h2><a id="3_208"></a>3.数据访问</h2>
+<ul>
+<li>d[key]</li>
+<li>d.get(key)如果key不存在，不会报错，会返回none</li>
+<li>d.keys()取key</li>
+<li>d.values()取值</li>
+</ul>
+<h2><a id="4_213"></a>4.遍历</h2>
+<pre><code class="prism language-python">d <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">'apple'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token string">'banana'</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> k <span class="token keyword">in</span> d<span class="token punctuation">:</span><span class="token comment">#使用for - in 循环时，会默认将key遍历</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span>get<span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> k <span class="token keyword">in</span> d<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span>get<span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> k <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> item <span class="token keyword">in</span> d<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment">#把每个键子对变成元组</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> k <span class="token punctuation">,</span>v <span class="token keyword">in</span> d<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment">#解包</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>v<span class="token punctuation">)</span>
+</code></pre>
+<h2><a id="5__234"></a>5. 增删改查</h2>
+<ul>
+<li>增：如果在赋值时，使用的key在字典中不存在，那么就是向字典中添加数据eg:d[key]=值</li>
+<li>删:d.popitem()默认删除最后一对<br>
+d.pop(key)pop可以通过指定key删除任意位置的数据<br>
+d.clear()清空字典中的键值对<br>
+del d[key]<br>
+del d 将字典全部数据</li>
+<li>改：如果在赋值时，使用的key在字典中存在，那么就是向字典中修改数据eg:d[key]=值（key具有唯一性）</li>
+</ul>
+<h1><a id="set_243"></a>四、集合set</h1>
+<h2><a id="1_244"></a>1.特性和定义</h2>
+<ul>
+<li>数据不允许重复，去重</li>
+</ul>
+<pre><code class="prism language-python">s <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">}</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/3257de96b142411483e2e24178ca515f.png" alt="在这里插入图片描述"></p>
+<ul>
+<li>定义：s=set()</li>
+</ul>
+<h2><a id="2_256"></a>2.遍历</h2>
+<ul>
+<li>集合不支持下标</li>
+</ul>
+<pre><code class="prism language-python">s <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">}</span>
+
+<span class="token keyword">for</span> v <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="_264"></a>五、公共方法</h1>
+<p><img src="https://img-blog.csdnimg.cn/f67c270265ca41798b713e51eafd2c41.png" alt="在这里插入图片描述"></p>
+</div>
+</body>
+
+</html>

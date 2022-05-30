@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从零开始学习机器学习之python基础|lambda函数|map函数|reduce函数|filter|设置sort方法的key属性和使用lambda函数实现列表排序</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>文章目录</h3><ul><li><a href="#lambda_7">一、lambda匿名函数</a></li><ul><li><a href="#1_8">1.定义</a></li><li><a href="#2_10">2.注意</a></li></ul><li><a href="#map_17">二、高阶函数map</a></li><ul><li><a href="#1_18">1.定义</a></li><li><a href="#2map_20">2.map函数实现</a></li></ul><li><a href="#reduce_34">三、reduce累计函数（数字，字符串）</a></li><ul><li><a href="#1_35">1.定义</a></li><li><a href="#2_37">2.注意</a></li><li><a href="#3_48">3.实现阶乘</a></li></ul><li><a href="#filter_55">四、filter用法</a></li><ul><li><a href="#1_56">1.定义</a></li><li><a href="#2_59">2.过滤纯数字</a></li></ul><li><a href="#sortkeylambda_67">五、列表排序sort(key属性设置)和lambda的使用</a></li></ul></div><p></p>
+<hr>
+<h1><a id="lambda_7"></a>一、lambda匿名函数</h1>
+<h2><a id="1_8"></a>1.定义</h2>
+<p>lambda 形参1，形参2…:[单行表达式]或函数调用</p>
+<h2><a id="2_10"></a>2.注意</h2>
+<ul>
+<li>lambda参数列表外没有括号</li>
+<li>没有函数名</li>
+<li>只能实现简单的表达式计算或函数调用（eg:map(func,list)）</li>
+<li>不能使用循环</li>
+<li>可以用三目运算符<br>
+lambda m, n: m if m &gt; n else n</li>
+</ul>
+<h1><a id="map_17"></a>二、高阶函数map</h1>
+<h2><a id="1_18"></a>1.定义</h2>
+<p>map(数学函数，列表)会根据提供的函数对指定序列做映射</p>
+<h2><a id="2map_20"></a>2.map函数实现</h2>
+<pre><code class="prism language-python"><span class="token keyword">def</span> <span class="token function">map</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> m_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    all_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> m_list<span class="token punctuation">:</span>
+        result <span class="token operator">=</span> func<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        all_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> all_list
+
+
+new_list <span class="token operator">=</span> <span class="token builtin">map</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token operator">**</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> j <span class="token keyword">in</span> new_list<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="reduce_34"></a>三、reduce累计函数（数字，字符串）</h1>
+<h2><a id="1_35"></a>1.定义</h2>
+<p>reduce（）函数会对参数序列中元素进行累计</p>
+<h2><a id="2_37"></a>2.注意</h2>
+<p>reduce不能直接使用，需要导入模块 functools</p>
+<pre><code class="prism language-python">my_list <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+
+result <span class="token operator">=</span> functools<span class="token punctuation">.</span><span class="token builtin">reduce</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x1<span class="token punctuation">,</span>x2<span class="token punctuation">:</span> x1 <span class="token operator">+</span> x2<span class="token punctuation">,</span>my_list<span class="token punctuation">)</span>
+result <span class="token operator">=</span> functools<span class="token punctuation">.</span><span class="token builtin">reduce</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x1<span class="token punctuation">,</span>x2<span class="token punctuation">:</span> x1<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> x2<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>my_list<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+</code></pre>
+<h2><a id="3_48"></a>3.实现阶乘</h2>
+<pre><code class="prism language-python">my_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span>
+result <span class="token operator">=</span> functools<span class="token punctuation">.</span><span class="token builtin">reduce</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> n1<span class="token punctuation">,</span>n2<span class="token punctuation">:</span>n1<span class="token operator">*</span>n2<span class="token punctuation">,</span>my_list<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="filter_55"></a>四、filter用法</h1>
+<h2><a id="1_56"></a>1.定义</h2>
+<p>用于过滤序列，过滤掉不符合条件的元素，返回一个filter对象，如要转换成列表，用list()进行转换</p>
+<h2><a id="2_59"></a>2.过滤纯数字</h2>
+<pre><code class="prism language-python">my_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'123'</span><span class="token punctuation">,</span><span class="token string">'avc'</span><span class="token punctuation">,</span><span class="token string">'12b'</span><span class="token punctuation">,</span><span class="token string">'-ds'</span><span class="token punctuation">,</span><span class="token string">'-23'</span><span class="token punctuation">,</span><span class="token string">'234'</span><span class="token punctuation">]</span>
+
+num_list <span class="token operator">=</span> <span class="token builtin">filter</span><span class="token punctuation">(</span><span class="token keyword">lambda</span>  s<span class="token punctuation">:</span> s<span class="token punctuation">.</span>isdigit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>my_list<span class="token punctuation">)</span>
+<span class="token keyword">for</span> s <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">(</span>num_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="sortkeylambda_67"></a>五、列表排序sort(key属性设置)和lambda的使用</h1>
+<p>sort方法不能对字典起作用，需要设置属性key</p>
+<pre><code class="prism language-python">my_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">'id'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'tom'</span><span class="token punctuation">,</span><span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token number">12</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">'id'</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'som'</span><span class="token punctuation">,</span><span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token number">12</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">'id'</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'tom'</span><span class="token punctuation">,</span><span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token number">12</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+
+my_list<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> d <span class="token punctuation">:</span> d<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>reverse<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>my_list<span class="token punctuation">)</span>
+</code></pre>
+</div>
+</body>
+
+</html>

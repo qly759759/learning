@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从零开始学习机器学习之python基础|文件操作</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>文章目录</h3><ul><li><a href="#_8">一、文件</a></li><ul><li><a href="#1_9">1.作用：进行持久化存储数据</a></li><li><a href="#2_10">2.程序操作过程</a></li><li><a href="#3_14">3.文件读取</a></li><li><a href="#4rename_34">4.文件重命名rename</a></li><li><a href="#5mkdir_37">5.创建目录mkdir</a></li><li><a href="#6getcwd_40">6.获取当前目录getcwd</a></li><li><a href="#7listdir_42">7.获取当前目录下的文件列表listdir</a></li><li><a href="#8chdir_46">8.改变当前目录到指定路径上chdir</a></li><li><a href="#9remove_49">9.删除文件remove</a></li><li><a href="#10rmdir_51">10.删除目录rmdir</a></li></ul><li><a href="#_55">二、练习</a></li><ul><li><a href="#1_56">1.复制文件</a></li><li><a href="#2_78">2.文件批量重命名并复制到另一个文件</a></li></ul></ul></div><p></p>
+<hr>
+<p>`</p>
+<h1><a id="_8"></a>一、文件</h1>
+<h2><a id="1_9"></a>1.作用：进行持久化存储数据</h2>
+<h2><a id="2_10"></a>2.程序操作过程</h2>
+<ul>
+<li>打开：设置打开的模式（读，写）</li>
+<li>操作文件（读取）</li>
+<li>关闭：close（）</li>
+</ul>
+<h2><a id="3_14"></a>3.文件读取</h2>
+<ul>
+<li>file.read()默认全部读取，适用于比较小的文件</li>
+<li>file.read(5)</li>
+</ul>
+<pre><code class="prism language-python"><span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token comment"># 接着读取</span>
+</code></pre>
+<ul>
+<li>读取多行文件的方式</li>
+</ul>
+<pre><code class="prism language-python"><span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+	content <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment"># 一般设置4096---4k</span>
+	<span class="token keyword">if</span> content <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span><span class="token comment"># 设置文件读取的结束条件</span>
+		<span class="token keyword">break</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>readline()以行读取</li>
+<li>readlines()将文件内容以行读取并形成列表</li>
+</ul>
+<h2><a id="4rename_34"></a>4.文件重命名rename</h2>
+<ul>
+<li>导入os模块（操作系统）</li>
+<li>os.rename(原名，修改后的名)</li>
+</ul>
+<h2><a id="5mkdir_37"></a>5.创建目录mkdir</h2>
+<ul>
+<li>os.mkdir(目录名)</li>
+<li>如果目录已存在会报错</li>
+</ul>
+<h2><a id="6getcwd_40"></a>6.获取当前目录getcwd</h2>
+<ul>
+<li>os.getcwd() 返回值是当前目录</li>
+</ul>
+<h2><a id="7listdir_42"></a>7.获取当前目录下的文件列表listdir</h2>
+<ul>
+<li>.当前目录</li>
+<li>…上级目录</li>
+<li>os.listdir(‘.’)返回的列表</li>
+</ul>
+<h2><a id="8chdir_46"></a>8.改变当前目录到指定路径上chdir</h2>
+<ul>
+<li>os.chdir(‘路径’)<br>
+c:\users\kg\desktop</li>
+</ul>
+<h2><a id="9remove_49"></a>9.删除文件remove</h2>
+<ul>
+<li>os.remove(路径’')</li>
+</ul>
+<h2><a id="10rmdir_51"></a>10.删除目录rmdir</h2>
+<ul>
+<li>os.rmdir(‘路径’)<br>
+当目录不为空时不能删除</li>
+</ul>
+<h1><a id="_55"></a>二、练习</h1>
+<h2><a id="1_56"></a>1.复制文件</h2>
+<pre><code class="prism language-python"><span class="token keyword">def</span> <span class="token function">file_copy</span><span class="token punctuation">(</span>src<span class="token punctuation">,</span>dst<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    file_r <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>src<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span><span class="token comment"># open(src,'rb')判断二进制文件写法</span>
+    file_w <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>dst<span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span><span class="token comment"># open(dst,'wb')判断二进制文件写法</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        content <span class="token operator">=</span> file_r<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">4096</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> content <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span><span class="token comment"># content == b''判断二进制文件写法</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"拷贝成功"</span><span class="token punctuation">)</span>
+            <span class="token keyword">break</span>
+        file_w<span class="token punctuation">.</span>write<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+    file_r<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    file_w<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span>
+src <span class="token operator">=</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+dst <span class="token operator">=</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+file_copy<span class="token punctuation">(</span>src<span class="token punctuation">,</span>dst<span class="token punctuation">)</span>
+</code></pre>
+<h2><a id="2_78"></a>2.文件批量重命名并复制到另一个文件</h2>
+<pre><code class="prism language-python"><span class="token keyword">import</span> os
+<span class="token keyword">def</span> <span class="token function">all_copy_rename</span><span class="token punctuation">(</span>src<span class="token punctuation">,</span>dst<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    os<span class="token punctuation">.</span>chdir<span class="token punctuation">(</span>src<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getcwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    file_list <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token builtin">file</span> <span class="token keyword">in</span> file_list<span class="token punctuation">:</span>
+
+        p_file <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>rpartition<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span>
+        dst_file <span class="token operator">=</span> dst <span class="token operator">+</span> <span class="token string">'/'</span> <span class="token operator">+</span> p_file<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'--'</span><span class="token operator">+</span>p_file<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>p_file<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>dst_file<span class="token punctuation">)</span>
+        file_r <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">,</span><span class="token string">'rt'</span><span class="token punctuation">)</span>
+        file_w <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>dst_file<span class="token punctuation">,</span><span class="token string">'wt'</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            content <span class="token operator">=</span> file_r<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> content <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token builtin">file</span><span class="token punctuation">}</span></span><span class="token string">复制成功"</span></span><span class="token punctuation">)</span>
+                file_w<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                file_r<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">break</span>
+            file_w<span class="token punctuation">.</span>write<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"一共复制了</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token builtin">len</span><span class="token punctuation">(</span>file_list<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+
+src <span class="token operator">=</span> <span class="token string">"C:/Users/yoki/Desktop/vv"</span>
+dst <span class="token operator">=</span> <span class="token string">"C:/Users/yoki/Desktop/v"</span>
+all_copy_rename<span class="token punctuation">(</span>src<span class="token punctuation">,</span>dst<span class="token punctuation">)</span>
+</code></pre>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从零开始学习机器学习之python基础|函数|逻辑运算符|if|随机数</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>文章目录</h3><ul><li><a href="#_6">一、函数</a></li><ul><li><a href="#1_7">1.作用</a></li><li><a href="#2__10">2. 好处</a></li><li><a href="#3_15">3.定义和调用</a></li><li><a href="#4__27">4. 调用过程</a></li><li><a href="#5_33">5.函数说明文档</a></li><li><a href="#6_52">6.实参和形参</a></li><li><a href="#7_58">7.函数返回值练习</a></li><li><a href="#8_68">8.传参练习</a></li></ul><li><a href="#_81">二、逻辑运算符</a></li><li><a href="#if_88">三、if语句</a></li><li><a href="#_108">四、随机数</a></li></ul></div><p></p>
+<hr>
+<h1><a id="_6"></a>一、函数</h1>
+<h2><a id="1_7"></a>1.作用</h2>
+<ul>
+<li>用来将一段功能代码封装到一起，并给他起个名字，在使用时，只需要使用代码的名字即可。</li>
+</ul>
+<h2><a id="2__10"></a>2. 好处</h2>
+<ul>
+<li>提高代码的开发效率</li>
+<li>使代码更加简洁</li>
+<li>提高代码的复用率</li>
+</ul>
+<h2><a id="3_15"></a>3.定义和调用</h2>
+<ul>
+<li>
+<p>定义</p>
+<pre><code> def 函数名（参数列表）:
+ (缩进)函数功能代码…
+ 	   ……
+</code></pre>
+</li>
+<li>
+<p>调用</p>
+<pre><code> 	 函数名（）
+</code></pre>
+</li>
+</ul>
+<h2><a id="4__27"></a>4. 调用过程</h2>
+<pre><code>		1)函数在定义时，函数体中的代码时不执行 的
+		2)当产生函数调用时，程序才会跳转到函数体中执行函数的代码
+		3)函数体中的代码执行完成后，回到调用处
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/f14c8410fc284cecabe9e97da575f5a0.png" alt="在这里插入图片描述"></p>
+<h2><a id="5_33"></a>5.函数说明文档</h2>
+<pre><code class="prism language-python"><span class="token keyword">def</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    show 函数的作用是用来显示一个字符串
+    '''</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+
+show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token builtin">help</span><span class="token punctuation">(</span>show<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/b421b6589dd34aed99a022627d95956d.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>#按住crtl建点击函数名即可查看函数说明文档，也可以通过help方法查看</p>
+</blockquote>
+<h2><a id="6_52"></a>6.实参和形参</h2>
+<pre><code>		实参：实际参数，是在函数调用时，括号中出现的数据
+		形参：函数被调用时，接收函数调用传递过来的实参数据
+		实参和形参在传递时要一一对应
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/f5a5013dffc04af9aa38023b43ef8c29.png" alt="在这里插入图片描述"></p>
+<h2><a id="7_58"></a>7.函数返回值练习</h2>
+<pre><code class="prism language-python"><span class="token keyword">def</span> <span class="token function">get_num</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'请输入一个数字：'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token comment"># input函数得到的是字符串类型，必须转换</span>
+
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>get_num<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre>
+<h2><a id="8_68"></a>8.传参练习</h2>
+<pre><code class="prism language-python"><span class="token keyword">def</span> <span class="token function">sum_num</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token operator">+</span><span class="token builtin">int</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'请输入要计算总和的两个数字：'</span><span class="token punctuation">)</span>
+a <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+b <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+sum_num<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sum_num<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="_81"></a>二、逻辑运算符</h1>
+<p>与：and 理解为乘法<br>
+或：or 理解为加法<br>
+非：not</p>
+<blockquote>
+<p><code>运算结果也是bool类型</code></p>
+</blockquote>
+<h1><a id="if_88"></a>三、if语句</h1>
+<p>格式</p>
+<pre><code class="prism language-python"><span class="token keyword">if</span> 条件<span class="token punctuation">:</span>
+	xxx
+<span class="token keyword">else</span> <span class="token punctuation">:</span>
+	xxx
+
+<span class="token keyword">if</span>  条件<span class="token number">1</span><span class="token punctuation">:</span>
+   xxx
+<span class="token keyword">elif</span> 条件<span class="token number">2</span><span class="token punctuation">:</span><span class="token comment"># 如果if 的条件不成立再进行elif判断</span>
+   xxx
+<span class="token keyword">elif</span> 条件<span class="token number">3</span><span class="token punctuation">:</span>
+   xxx
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+   xxx
+
+</code></pre>
+<h1><a id="_108"></a>四、随机数</h1>
+<ol>
+<li>导入random模块</li>
+<li>random.randint(n1,n2)<br>
+通过这个函数，得到一个[n1,n2]的随机整数</li>
+</ol>
+<pre><code class="prism language-python">n <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token comment"># 在0，1，2中取值</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+</code></pre>
+</div>
+</body>
+
+</html>

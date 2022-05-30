@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从零开始学习机器学习之python基础|print函数循环|字符串</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>文章目录</h3><ul><li><a href="#print_8">一、print函数</a></li><li><a href="#forinrange_24">二、for-in&amp;range循环</a></li><li><a href="#forinelsewhileelse_37">三、for-in-else|while-else循环</a></li><li><a href="#_40">四、字符串定义和下标</a></li><li><a href="#_53">五、字符串的遍历</a></li><li><a href="#_80">六、字符串切片</a></li><li><a href="#int_110">七、复现字符串转成int类型函数</a></li></ul></div><p></p>
+<hr>
+<h1><a id="print_8"></a>一、print函数</h1>
+<p>print函数中，使用end=形式来给print函数设置一个结束符号，默认的结束符是\n</p>
+<pre><code class="prism language-python">i <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">while</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">:</span>
+    j <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> j <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">' '</span><span class="token punctuation">)</span>
+        j <span class="token operator">+=</span> <span class="token number">1</span>
+
+    i <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 换行直接写一个print()</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/8a1b8f9da5714df79acf1b80f94ea8ca.png" alt="在这里插入图片描述"></p>
+<h1><a id="forinrange_24"></a>二、for-in&amp;range循环</h1>
+<p>range（）函数中可以有两个参数，起始值和趋近值，左闭右开区间</p>
+<pre><code class="prism language-python"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token comment"># 0，1，2</span>
+</code></pre>
+<p>打印99乘法表</p>
+<pre><code class="prism language-python"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment">#1-i</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>j<span class="token punctuation">}</span></span><span class="token string">*</span><span class="token interpolation"><span class="token punctuation">{</span>i<span class="token punctuation">}</span></span><span class="token string">=</span><span class="token interpolation"><span class="token punctuation">{</span>j<span class="token operator">*</span>i<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">' '</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="forinelsewhileelse_37"></a>三、for-in-else|while-else循环</h1>
+<p>当程序正常执行会显示进行else里的操作，但如果被break中断，则不会进行else操作</p>
+<h1><a id="_40"></a>四、字符串定义和下标</h1>
+<p>定义形式</p>
+<ul>
+<li>‘hello’#常用</li>
+<li>“hello”</li>
+<li>‘’‘hello’‘’ #可以分行写</li>
+<li>“”“hello”“” #可以分行写</li>
+</ul>
+<p>下标从0开始<br>
+使用下标访问字符串中的字符：<br>
+eg:s=‘123’<br>
+s[0],s[1],s[2]</p>
+<h1><a id="_53"></a>五、字符串的遍历</h1>
+<p>遍历：依次访问字符串的每一个字符<br>
+法一：</p>
+<pre><code class="prism language-python"><span class="token keyword">for</span> c <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+</code></pre>
+<p>法二：通过len（字符串）函数求得字符串长度</p>
+<pre><code class="prism language-python"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span>（<span class="token builtin">len</span><span class="token punctuation">(</span>字符串<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>法三：</p>
+<pre><code class="prism language-python">i<span class="token operator">=</span><span class="token number">0</span>
+<span class="token keyword">while</span> i<span class="token operator">&lt;</span><span class="token builtin">len</span><span class="token punctuation">(</span>字符串<span class="token punctuation">)</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+	i<span class="token operator">+=</span><span class="token number">1</span>
+</code></pre>
+<h1><a id="_80"></a>六、字符串切片</h1>
+<p>切片：通过指定下标，可以获取字符串中的某一段字符，不会影响原字符串<br>
+切片时，起始下标和结束下标都可以使用负数，负数表示从右向左编号，第一个字符是-1</p>
+<p>格式：<br>
+字符串变量[起始下标：结束下标：步长]（不包括结束下标）<br>
+步长为正为从左向右切，为负为从右向左切</p>
+<pre><code class="prism language-python">s <span class="token operator">=</span> <span class="token string">'hello world'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>  <span class="token comment"># 切片后不对原字符串产生影响hello world</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 求字符串长度 11</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 复制整个字符串hello world</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 从下标2开始到结尾llo world</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 从开头到下标2hello worl</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 从下标1到字符串长度ello world</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 步长默认为1 hello world</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 每第3个字符一读 hlwl</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment"># h d</span>
+</code></pre>
+<blockquote>
+<p><code>步长可以为负数，负数表示从右向左切，但下标还是从左到右数 </code></p>
+</blockquote>
+<p><strong>字符串逆序</strong>：</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="int_110"></a>七、复现字符串转成int类型函数</h1>
+<pre><code class="prism language-python"><span class="token keyword">def</span> <span class="token function">my_int</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    my_num <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> string<span class="token punctuation">:</span>
+
+        one_num <span class="token operator">=</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">-</span><span class="token builtin">ord</span><span class="token punctuation">(</span><span class="token string">'0'</span><span class="token punctuation">)</span>
+        my_num <span class="token operator">=</span> my_num <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> one_num
+    <span class="token keyword">return</span> my_num
+    
+num <span class="token operator">=</span> my_int<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>num<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/16a4860d3b524b66a0193203bf412ca7.png" alt="在这里插入图片描述"></p>
+</div>
+</body>
+
+</html>

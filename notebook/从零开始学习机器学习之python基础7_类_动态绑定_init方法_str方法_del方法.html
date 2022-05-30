@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从零开始学习机器学习之python基础|类|动态绑定|init方法|str方法|del方法</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>文章目录</h3><ul><li><a href="#_8">一、类</a></li><li><a href="#_17">二、动态绑定属性</a></li><li><a href="#_init__36">三、_init_方法</a></li><li><a href="#_str__52">四、_str_方法</a></li><li><a href="#_del__77">五、_del_方法</a></li></ul></div><p></p>
+<hr>
+<h1><a id="_8"></a>一、类</h1>
+<p>新式类：</p>
+<pre><code class="prism language-python"><span class="token keyword">class</span> <span class="token class-name">Human</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">people</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I am a human"</span><span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="_17"></a>二、动态绑定属性</h1>
+<ul>
+<li>1.动态为对象绑定属性时，给哪个对象绑定了属性，只能哪个对象有该属性，其他对象是没有的</li>
+<li>2.如果在方法中引用了该属性，那么注释没有该属性的对象，调用这个方法时，就报错</li>
+</ul>
+<pre><code class="prism language-python"><span class="token keyword">class</span> <span class="token class-name">Human</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">eat</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>food<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">"在吃"</span><span class="token punctuation">,</span>food<span class="token punctuation">)</span>
+
+
+tom <span class="token operator">=</span> Human<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+tom<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Tom'</span>
+tom<span class="token punctuation">.</span>eat<span class="token punctuation">(</span><span class="token string">"苹果"</span><span class="token punctuation">)</span>
+
+rose <span class="token operator">=</span> Human<span class="token punctuation">(</span><span class="token punctuation">)</span>
+rose<span class="token punctuation">.</span>eat<span class="token punctuation">(</span><span class="token string">"香蕉"</span><span class="token punctuation">)</span><span class="token comment"># 未进行属性设置，会报错</span>
+</code></pre>
+<h1><a id="_init__36"></a>三、_init_方法</h1>
+<ul>
+<li>_init_方法是一个魔法方法，命名规则是前后各有两个下划线</li>
+<li>魔法方法是python当中预设好的，具有特定功能的方法，一般这种方法，不需要手动调用，会自动调用执行</li>
+<li>该方法会在创建对象的时候自动调用</li>
+<li>调用时，这个方法用来为对象进行初始化</li>
+</ul>
+<pre><code class="prism language-python"><span class="token keyword">class</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Init"</span><span class="token punctuation">,</span> self<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
+
+    <span class="token keyword">def</span> <span class="token function">show</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span>self<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="_str__52"></a>四、_str_方法</h1>
+<ul>
+<li>当使用str()做类型转换时，会自动调用该方法</li>
+<li>该方法返回一个字符串值</li>
+<li>如果需要将对象的信息按照一定的格式进行格式化，那么可以在方法里面进行格式修饰，修饰完后，可以将这个格式化字符串返回，让str（）方法在执行时，得到该对象转换的字符串类型</li>
+<li>格式化对象</li>
+</ul>
+<pre><code class="prism language-python"><span class="token keyword">class</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">,</span>height<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
+        self<span class="token punctuation">.</span>height <span class="token operator">=</span> height
+
+    <span class="token keyword">def</span> <span class="token function">show</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span>self<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        s <span class="token operator">=</span> self<span class="token punctuation">.</span>name<span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>height<span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> s
+
+tom <span class="token operator">=</span> Dog<span class="token punctuation">(</span><span class="token string">'To'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'10cm'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>tom<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="_del__77"></a>五、_del_方法</h1>
+<ul>
+<li>该方法用来在删除对象时，回收对象占的资源</li>
+</ul>
+<pre><code class="prism language-python">    <span class="token keyword">def</span> <span class="token function">__del__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">del</span> self<span class="token punctuation">.</span>name
+	<span class="token keyword">del</span> tom<span class="token comment"># 手动销毁</span>
+
+</code></pre>
+</div>
+</body>
+
+</html>

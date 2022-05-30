@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从零开始学习机器学习之python基础|注释|标识符|关键字|占位符|input函数|算术运算符|类型转换</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>文章目录</h3><ul><li><a href="#_4">前言</a></li><li><a href="#python_5">一、python注释</a></li><ul><li><a href="#1_6">1.单行注释</a></li><li><a href="#2_16">2.多行注释</a></li></ul><li><a href="#type__37">二、type函数 测试类型</a></li><li><a href="#_48">三、标识符命名</a></li><li><a href="#_53">四、关键字</a></li><li><a href="#_68">五、占位符</a></li><ul><li><a href="#1s_69">1.%s</a></li><li><a href="#2d__78">2.%d 以整数输出</a></li><li><a href="#3f__93">3.%f 以小数输出</a></li><li><a href="#4f_string_102">4.f_string输出变化的字符串</a></li><li><a href="#5format_113">5.\.format</a></li></ul><li><a href="#input_126">六、input输入函数</a></li><li><a href="#_149">七、算术运算符</a></li><li><a href="#_179">八、类型转换</a></li><ul><li><a href="#1int_180">1.int()整数转换</a></li><li><a href="#2float_182">2.float()浮点转换</a></li><li><a href="#3str_183">3.str()字符串转换</a></li><li><a href="#4chrASCII_184">4.chr()根据ASCII码将数字转换成对应的字符</a></li><li><a href="#5ordASCII_185">5.ord()根据ASCII码将字符转换成对应的数字</a></li></ul></ul></div><p></p>
+<hr>
+<h1><a id="_4"></a>前言</h1>
+<h1><a id="python_5"></a>一、python注释</h1>
+<h2><a id="1_6"></a>1.单行注释</h2>
+<pre><code>	#加空格
+</code></pre>
+<p>代码如下（示例）：</p>
+<pre><code class="prism language-python"><span class="token comment"># 这是一个单行注释</span>
+</code></pre>
+<blockquote>
+<p>pycharm注释快捷键：ctrl+/<br>
+复制快捷键：ctrl+d</p>
+</blockquote>
+<hr>
+<h2><a id="2_16"></a>2.多行注释</h2>
+<ul>
+<li>‘’’<br>
+‘’’</li>
+</ul>
+<pre><code class="prism language-python"><span class="token triple-quoted-string string">'''
+    多行注释
+    用来描述当前这个程序实现了什么功能,一般写于代码最开始的位置
+'''</span>
+</code></pre>
+<ul>
+<li>“”"<br>
+“”"</li>
+</ul>
+<pre><code class="prism language-python"><span class="token triple-quoted-string string">"""
+    多行注释
+    这个也是注释
+"""</span>
+</code></pre>
+<hr>
+<h1><a id="type__37"></a>二、type函数 测试类型</h1>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>输出类型结果<br>
+<img src="https://img-blog.csdnimg.cn/db2c6b33e5c84b3da850d420fb463622.png" alt="在这里插入图片描述"></p>
+<hr>
+<h1><a id="_48"></a>三、标识符命名</h1>
+<ul>
+<li>由字母，下划线，数字组成，但不能以数字开头</li>
+<li>python中使用下划线风格定义标识符，eg:new_file</li>
+</ul>
+<hr>
+<h1><a id="_53"></a>四、关键字</h1>
+<p>使用keyword.kwlist函数方法可以获取所有关键字</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>keyword<span class="token punctuation">.</span>kwlist<span class="token punctuation">)</span>
+</code></pre>
+<p>以下为所有关键字：<br>
+‘False’, ‘None’, ‘True’, ‘<strong>peg_parser</strong>’, ‘and’,<br>
+‘as’, ‘assert’, ‘async’, ‘await’, ‘break’, ‘class’,<br>
+‘continue’, ‘def’, ‘del’, ‘elif’, ‘else’, ‘except’,<br>
+‘finally’, ‘for’, ‘from’, ‘global’, ‘if’, ‘import’,<br>
+‘in’, ‘is’, ‘lambda’, ‘nonlocal’, ‘not’, ‘or’, ‘pass’,<br>
+‘raise’, ‘return’, ‘try’, ‘while’, ‘with’, ‘yield’</p>
+<blockquote>
+<p>在定义标识符时不要使用关键字作为标识符名，也不要使用程序定义的功能函数名，eg:print</p>
+</blockquote>
+<hr>
+<h1><a id="_68"></a>五、占位符</h1>
+<h2><a id="1s_69"></a>1.%s</h2>
+<ul>
+<li>建议不论是数字还是单个字符都用%s输出</li>
+<li>若有多个占位符要用（）括起来</li>
+</ul>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'age: %s name:%s'</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token string">'nike'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>特别的有：</p>
+<h2><a id="2d__78"></a>2.%d 以整数输出</h2>
+<p>1). %3d 输出时，数据占3个字符宽度，当数字超过三个字符时，照常输出<br>
+2). %03d 输出时，数据占3个字符宽度，当数字不足三个字符时，用零补在前面<br>
+3). %-3d 输出时，数据占3个字符宽度，左对齐</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d'</span> <span class="token operator">%</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%3d'</span> <span class="token operator">%</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%3d'</span> <span class="token operator">%</span> <span class="token number">12345</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%03d'</span> <span class="token operator">%</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%-3d'</span> <span class="token operator">%</span> <span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/8aefad1632b3477dabed5c7cdd641d3f.png" alt="在这里插入图片描述"></p>
+<h2><a id="3f__93"></a>3.%f 以小数输出</h2>
+<p>%.3d小数点后保留3位小数</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%.3f'</span> <span class="token operator">%</span> <span class="token number">3.12334</span><span class="token punctuation">)</span>
+
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/5a47091788b645d78a0f5af97f66fc98.png" alt="在这里插入图片描述"></p>
+<h2><a id="4f_string_102"></a>4.f_string输出变化的字符串</h2>
+<p>用法： f’字符串 {变量名}‘</p>
+<pre><code class="prism language-python">stu_age<span class="token operator">=</span><span class="token number">10</span>
+stu_name<span class="token operator">=</span><span class="token string">'nike'</span>
+s<span class="token operator">=</span><span class="token string-interpolation"><span class="token string">f'age = </span><span class="token interpolation"><span class="token punctuation">{</span>stu_age<span class="token punctuation">}</span></span><span class="token string">,name=</span><span class="token interpolation"><span class="token punctuation">{</span>stu_name<span class="token punctuation">}</span></span><span class="token string">'</span></span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/56f413b1999d4ce1a15876ecd80497c3.png" alt="在这里插入图片描述"></p>
+<h2><a id="5format_113"></a>5..format</h2>
+<pre><code class="prism language-python">a<span class="token operator">=</span><span class="token number">2</span>
+b<span class="token operator">=</span><span class="token number">3.3</span>
+c<span class="token operator">=</span><span class="token number">4</span>
+s<span class="token operator">=</span><span class="token string">'a={0:5d} b={1:.3f} c={0}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+</code></pre>
+<p>{0:5d}表示a取format中第一个的值，即为2，且输出格式为5d<br>
+<img src="https://img-blog.csdnimg.cn/c7966e8b61904c108d34a49f7aa318a4.png" alt="在这里插入图片描述"></p>
+<h1><a id="input_126"></a>六、input输入函数</h1>
+<ul>
+<li>一般会使用一个变量去接收输入的值<br>
+eg:a=input（）<br>
+eg:变量 = input （‘提示字符串’）</li>
+</ul>
+<pre><code class="prism language-python">stu_num<span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'请输入学号：'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>stu_num<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/7f3d06e74bee45e4a22eb8a3bbcd1a7a.png" alt="在这里插入图片描述"></p>
+<ul>
+<li><strong>并且无论输入的是什么，得到的都是字符串类型</strong></li>
+</ul>
+<pre><code class="prism language-python">stu_grade_1 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'请输入第一个学生成绩：'</span><span class="token punctuation">)</span>
+stu_grade_2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'请输入第二个学生成绩：'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>stu_grade_1 <span class="token operator">+</span> stu_grade_2<span class="token punctuation">)</span>
+</code></pre>
+<p>输出的不会是193，因为是字符串<br>
+<img src="https://img-blog.csdnimg.cn/d6a3ca94d3cb4e20b3bb8e474d62d05f.png" alt="在这里插入图片描述"></p>
+<h1><a id="_149"></a>七、算术运算符</h1>
+<p>加减乘都是一般理解（+ - * ）</p>
+<blockquote>
+<p><code>注意*乘法的使用</code>，当不是数字时是连续打印10次，而不是做乘法</p>
+</blockquote>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'g'</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span>
+
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/91b767315a954c78b406586f0f68a31c.png" alt="在这里插入图片描述"></p>
+<p><strong>特别的:</strong><br>
+除（/）:浮点除<br>
+地板除（//）:只保留整数部分，无进位<br>
+取余（%）:取余数<br>
+指数（**）:a的b次方表示为a**b</p>
+<blockquote>
+<p>优先级：**高于* / % // 高于+ -</p>
+</blockquote>
+<blockquote>
+<p>不同类型的数字在进行混合运算时，整数将会转换成浮点数进行运算</p>
+</blockquote>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token comment">#3.3333333333333335 小数点保留16位</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">//</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">%</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">**</span><span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/9693c9af310f486c9311245e2366f2fb.png" alt="在这里插入图片描述"></p>
+<h1><a id="_179"></a>八、类型转换</h1>
+<h2><a id="1int_180"></a>1.int()整数转换</h2>
+<blockquote>
+<p>int(‘1.1’)是错误的，不能从浮点转换成int类型</p>
+</blockquote>
+<h2><a id="2float_182"></a>2.float()浮点转换</h2>
+<h2><a id="3str_183"></a>3.str()字符串转换</h2>
+<h2><a id="4chrASCII_184"></a>4.chr()根据ASCII码将数字转换成对应的字符</h2>
+<h2><a id="5ordASCII_185"></a>5.ord()根据ASCII码将字符转换成对应的数字</h2>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment">#将字符串1转换成数字1  输出结果为 2</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">1.1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#将小数1转换成数字1  输出结果为 1</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">float</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#将整数1转换成小数1  输出结果为 1.0</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment">#将字符串1转换成小数1  输出结果为 2.0</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'!'</span><span class="token punctuation">)</span><span class="token comment">#将数字1转成字符串1 输出结果为1！</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">chr</span><span class="token punctuation">(</span><span class="token number">48</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#将数字48根据ASCII码转换成对应的字符 输出结果为字符0</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">chr</span><span class="token punctuation">(</span><span class="token number">65</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#将数字65根据ASCII码转换成对应的字符 输出结果为字符A</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">chr</span><span class="token punctuation">(</span><span class="token number">97</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#将数字97根据ASCII码转换成对应的字符 输出结果为字符a</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span><span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># 将一个字符转换成对应的数字编码 48</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># 65</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># 97</span>
+</code></pre>
+<blockquote>
+<p>记住三个重要的ASCII码<br>
+1.字符 0对应数字48<br>
+2.字符 A对应数字65<br>
+3. 字符a对应数字97</p>
+</blockquote>
+</div>
+</body>
+
+</html>
