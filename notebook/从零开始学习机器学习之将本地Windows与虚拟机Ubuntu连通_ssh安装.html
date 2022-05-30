@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从零开始学习机器学习之将本地Windows与虚拟机Ubuntu连通|ssh安装</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p></p><div class="toc"><h3>文章目录</h3><ul><li><a href="#windowsssh_8">一、windows下ssh安装</a></li><ul><li><a href="#1_9">1.下载地址</a></li><li><a href="#2_12">2.安装</a></li><li><a href="#3_15">3.测试</a></li></ul><li><a href="#LinuxUbuntussh_17">二、Linux（Ubuntu）下的ssh安装</a></li><ul><li><a href="#1_18">1.下载---命令行方式</a></li><li><a href="#2_22">2.测试</a></li></ul><li><a href="#windows_ubuntu_30">三、在windows 传输文件到虚拟机（ubuntu）</a></li></ul></div><p></p>
+<hr>
+<h1><a id="windowsssh_8"></a>一、windows下ssh安装</h1>
+<h2><a id="1_9"></a>1.下载地址</h2>
+<p>https://github.com/PowerShell/Win32-OpenSSH/releases<br>
+<img src="https://img-blog.csdnimg.cn/68e827dfc68646f7871143e0881def3f.png" alt="在这里插入图片描述"></p>
+<h2><a id="2_12"></a>2.安装</h2>
+<p>讲下载好的压缩包，解压到你的指定目录，并配置环境变量（目录地址）<br>
+<img src="https://img-blog.csdnimg.cn/d150f92036a74fef8f9dccf5fad952de.png" alt="在这里插入图片描述"></p>
+<h2><a id="3_15"></a>3.测试</h2>
+<p><img src="https://img-blog.csdnimg.cn/21e9fc79914f46429093015e52b90e52.png" alt="在这里插入图片描述"></p>
+<h1><a id="LinuxUbuntussh_17"></a>二、Linux（Ubuntu）下的ssh安装</h1>
+<h2><a id="1_18"></a>1.下载—命令行方式</h2>
+<blockquote>
+<p><code>sudo apt-get install openssh-server</code></p>
+</blockquote>
+<h2><a id="2_22"></a>2.测试</h2>
+<ul>
+<li>
+<p>1.先输入ifconfig 查看ubuntu的IP地址<br>
+<img src="https://img-blog.csdnimg.cn/727bfe66e5de41b3a75176281a38185b.png" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>2.在windows cmd 中 ping 该ip地址<br>
+<img src="https://img-blog.csdnimg.cn/a0b77c32e5c247d5924799168ed28b3a.png" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>3.输入 ssh 用户@地址<br>
+<img src="https://img-blog.csdnimg.cn/656e1a7ddc9242ca852fc2cf5576d062.png" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<h1><a id="windows_ubuntu_30"></a>三、在windows 传输文件到虚拟机（ubuntu）</h1>
+<p>连接成功后可直接在cmd中使用Linux命令来操作虚拟机<br>
+如：新建一个文件<br>
+<img src="https://img-blog.csdnimg.cn/d21922cd45a44ee991ece3550587dd54.png" alt="在这里插入图片描述"><br>
+回到虚拟机查看，输入ls命令<br>
+<img src="https://img-blog.csdnimg.cn/264c516c4c494916ab73aea184f5b938.png" alt="在这里插入图片描述"></p>
+</div>
+</body>
+
+</html>
